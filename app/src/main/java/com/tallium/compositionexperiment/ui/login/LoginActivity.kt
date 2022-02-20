@@ -2,6 +2,7 @@ package com.tallium.compositionexperiment.ui.login
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.children
 import com.tallium.compositionexperiment.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -18,10 +19,8 @@ class LoginActivity : AppCompatActivity() {
         val second = SecondScreen()
         val third = ThirdScreen()
 
-        val composition = listOf(first, second, third)
-
-        for (item in composition) {
-            item.initViews(binding.root)
+        listOf(first, second, third).forEach {
+            it.initViews(binding.root.children)
         }
     }
 }
